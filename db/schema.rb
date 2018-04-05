@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180405012037) do
     t.string "tel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["nameid"], name: "index_users_on_nameid", unique: true
   end
 
 end

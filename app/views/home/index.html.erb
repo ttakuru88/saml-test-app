@@ -1,0 +1,22 @@
+<h2>メニュー</h2>
+
+<% if signed_in? %>
+  <p>ログインしています。</p>
+  <ul>
+    <li>nameid：<%= current_user.nameid %>
+    <li>名前：<%= current_user.last_name %> <%= current_user.first_name %></li>
+    <li>tel: <%= current_user.tel %></li>
+  </ul>
+  <%= link_to 'ログアウトする', sign_out_path %>
+<% else %>
+  <p>ログインしていません。</p>
+  <%= link_to 'ログインする', sso_saml_path %>
+<% end %>
+
+<p>
+  <%= link_to 'ログインしていないと見れないページへ', private_path %>
+</p>
+
+<p>
+  <%= link_to 'SPメタデータのダウンロード', metadata_saml_path %>
+</p>
